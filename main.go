@@ -13,19 +13,25 @@ import (
 
 func repair(execScript, host, logDir string) (int, string) {
 	repairCommand := "nodetool repair -pr"
-	logFilePath := filepath.Join(logDir, fmt.Sprintf("%s_repair.log", host))
-
-	logFile, err := os.Create(logFilePath)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer logFile.Close()
 
 	cmd := exec.Command("bash", execScript, host, repairCommand)
-	cmd.Stdout = logFile
-	cmd.Stderr = logFile
+	logFilePath := ""
+	if logDir != "" {
+		logFilePath = filepath.Join(logDir, fmt.Sprintf("%s_repair.log", host))
 
-	err = cmd.Run()
+		logFile, err := os.Create(logFilePath)
+		if err != nil {
+			log.Fatal(err)
+		}
+		defer logFile.Close()
+		cmd.Stdout = logFile
+		cmd.Stderr = logFile
+	} else {
+		cmd.Stdout = os.Stdout
+		cmd.Stderr = os.Stderr
+	}
+
+	err := cmd.Run()
 
 	if err != nil {
 		exitErr, ok := err.(*exec.ExitError)
@@ -41,8 +47,8 @@ func repair(execScript, host, logDir string) (int, string) {
 func main() {
 	execScript := flag.String("exec", "", "Path to the bash script to execute")
 	hosts := flag.String("hosts", "", "CSV file containing a list of hosts")
-	logOutputDir := flag.String("logoutputdir", ".repair_logs", "Log output directory, default is current directory")
-	failureScript := flag.String("f", "", "Script to execute on failure")
+	logOutputDir := flag.String("logdir", "", "Log output directory, if does not exist then logs will come out to console. Useful for making one log file per host, otherwise use normal redirects.")
+	failureScript := flag.String("f", "", "Script to execute on failure, first parameter passed is the host, second is the log output file (will be blank if logging to console)")
 	successScript := flag.String("s", "", "Script to execute on success")
 
 	flag.Parse()

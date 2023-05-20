@@ -2,7 +2,7 @@
 
 Scylla Manager is cool, but it requires 2 annoying things:
 
-1. You have to setup the agent on every node
+1. You have to set up the agent on every node
 2. You have to have an enterprise license for more than 5 nodes
 
 1 is not a huge deal, 2 sucks.
@@ -11,7 +11,7 @@ FWIW if you are an enterprise customer definitely use Scylla Manager. This is fo
 
 ## How to run this
 
-You can run this manually on some interval, setup a cron job, a kubernetes job per-cluster, etc. You will want to run this every 7 days (by default, change according to your settings).
+You can run this manually on some interval, set up a cron job, a kubernetes job per-cluster, etc. You will want to run this every 7 days (by default, change according to your settings).
 
 ## Go Version
 
@@ -32,6 +32,8 @@ docker compose up -d
 ```
 bash test.sh
 ```
+
+See additional parameters that can be passed in at [main.go](/main.go)
 
 ## Bash Version
 
