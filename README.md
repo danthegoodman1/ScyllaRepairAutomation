@@ -1,3 +1,5 @@
+# ScyllaRepairAutomation
+
 ## Go Version
 
 Supports optional logging, failure and success scripts, etc.
@@ -13,4 +15,3 @@ This version is very simple and hard-coded. You can change the command within th
 ```
 ./repair.sh "10.0.0.1:9042,10.0.0.2:9042,10.0.0.3:9042"
 ```
-# ScyllaRepairAutomation
