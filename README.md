@@ -7,7 +7,7 @@ Scylla Manager is cool, but it requires 2 annoying things:
 
 1 is not a huge deal, 2 sucks.
 
-FWIW if you are an enterprise customer definitely use it. This is for the rest of us open source users.
+FWIW if you are an enterprise customer definitely use Scylla Manager. This is for the rest of us open source users.
 
 ## Go Version
 
