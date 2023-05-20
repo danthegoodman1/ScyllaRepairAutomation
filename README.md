@@ -9,6 +9,10 @@ Scylla Manager is cool, but it requires 2 annoying things:
 
 FWIW if you are an enterprise customer definitely use Scylla Manager. This is for the rest of us open source users.
 
+## How to run this
+
+You can run this manually on some interval, setup a cron job, a kubernetes job per-cluster, etc. You will want to run this every 7 days (by default, change according to your settings).
+
 ## Go Version
 
 Supports optional logging, failure and success scripts, etc.
