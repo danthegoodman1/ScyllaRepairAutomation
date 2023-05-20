@@ -2,3 +2,5 @@ exec.sh
 fail.sh
 succ.sh
 oldrepair.sh
+scylla
+.repair_logs

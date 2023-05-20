@@ -1,7 +1,7 @@
-IFS=',' read -ra HOSTS <<< "$1" # you could replace $1 with a hard-coded list if you prefer
+IFS=',' read -ra HOSTS <<< "$1"
 for i in "${HOSTS[@]}"; do
   echo "🛠️  Repairing host '$i'..."
-  output=$(ssh root@$i -C "nodetool repair -pr") # replace with your command (ssh, kubectl, fly ssh, etc.)
+  output=$(docker exec $i nodetool repair -pr)
   exit_code=$?
   if [ $exit_code -ne 0 ]; then
       echo "😥 SSH command failed with exit code $exit_code for host '$i'"

@@ -71,4 +71,5 @@ func main() {
 	if *successScript != "" {
 		exec.Command("bash", *successScript, time.Since(startTime).String()).Run()
 	}
+	log.Println("Success!")
 }
