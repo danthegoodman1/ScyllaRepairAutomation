@@ -11,7 +11,7 @@ FWIW if you are an enterprise customer definitely use Scylla Manager. This is fo
 
 ## How to run this
 
-You can run this manually on some interval, set up a cron job, a kubernetes job per-cluster, etc. You will want to run this every 7 days (by default, change according to your settings).
+You can run this manually on some interval, set up a cron job, a kubernetes job, etc. You will want to run this every 7 days (by default, change according to your settings).
 
 ## Go Version
 
