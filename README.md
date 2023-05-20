@@ -1,5 +1,14 @@
 # ScyllaRepairAutomation
 
+Scylla Manager is cool, but it requires 2 annoying things:
+
+1. You have to setup the agent on every node
+2. You have to have an enterprise license for more than 5 nodes
+
+1 is not a huge deal, 2 sucks.
+
+FWIW if you are an enterprise customer definitely use it. This is for the rest of us open source users.
+
 ## Go Version
 
 Supports optional logging, failure and success scripts, etc.
