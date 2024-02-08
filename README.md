@@ -15,11 +15,7 @@ You can run this manually on some interval, set up a cron job, a kubernetes job,
 
 ## Go Version
 
-Supports optional logging, failure and success scripts, etc.
-
-```
-go run . -exec exec.sh -hosts host1,host2 -s succ.sh -f fail.shgo run
-```
+Manages the commands to execute, requires that you provide a script that can be passed the host and the command so you can use what ever form of execution you want (ssh, docker command, `fly ssh`, etc.). Supports optional logging, failure and success scripts, etc. See [`exec.sh`](exec.sh) for an example executing on docker nodes.
 
 You can test with the local `docker-compose.yaml` by running:
 
